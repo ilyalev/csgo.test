@@ -1,0 +1,76 @@
+body {
+      background-color: #222222;
+      color: white;
+      font-family: "Open Sans";
+      text-align: center;
+      
+    }
+
+.btn-link{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color:green;
+  padding:0;
+  text-decoration:underline;
+  font-family:inherit;
+  font-size:inherit;
+}
+
+.activematches{
+
+width: 900px;
+height:40px;
+background-color: #1b2838;
+border:1px solid white; 
+}
+.activematches:hover{
+background-color: #364C68;
+
+
+
+}
+
+.logo{
+width: 40px;
+height: 40px;
+float:left;
+
+}
+
+p{
+  position: relative;
+  top: 25%;
+  cursor: default;
+     
+}
+.nameteam{
+width: 150px;
+height: 40px;
+float:left;
+cursor: default;
+font-size: 80%;
+}
+
+
+.totalbet{
+width: 80px;
+height:40px;
+float:left;
+cursor: default;
+font-size: 95%;
+}
+.score{
+width: 60px;
+height:40px;
+float:left;
+cursor: default;
+}
+.timeinfo{
+width: 130px;
+height:40px;
+float:left;
+cursor: default;
+font-size: 95%;
+}

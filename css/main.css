@@ -1,0 +1,79 @@
+body {
+      background-color: #222222;
+      color: white;
+      font-family: "Open Sans";
+      text-align: center;
+      
+    }
+
+.btn-link{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color:green;
+  padding:0;
+  text-decoration:underline;
+  font-family:inherit;
+  font-size:inherit;
+}
+
+.activematches{
+
+width: 950px;
+height:40px;
+
+
+}
+
+.logo{
+width: 40px;
+height: 40px;
+float:left;
+margin:3px;
+}
+
+p{
+  position: relative;
+  top: 25%;
+     
+     
+}
+.nameteam1{
+width: 150px;
+height: 40px;
+float:left;
+border:1px solid white; 
+margin: 3px;
+
+}
+
+.nameteam2{
+width: 150px;
+height: 40px;
+float:left;
+border:1px solid white; 
+margin: 3px;
+
+}
+.totalbet{
+width: 80px;
+height:40px;
+float:left;
+
+margin:3px;
+}
+.score{
+width: 60px;
+height:40px;
+float:left;
+border:1px solid white; 
+margin:3px;
+}
+.timeinfo{
+width: 130px;
+height:40px;
+float:left;
+border:1px solid white; 
+margin:3px;
+}
