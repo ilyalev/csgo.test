@@ -20,60 +20,156 @@ body {
 
 .activematches{
 
-width: 950px;
+width: 900px;
 height:40px;
-
-
+background-color: #1b2838;
+box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 }
+.activematches:hover{
+background-color: #364C68;
 
-.logo{
-width: 40px;
-height: 40px;
-float:left;
-margin:3px;
 }
 
 p{
+  margin-top: 6px;
+}
+.logoEvent{
+width: 40px;
+height: 40px;
+float:left;
+
+}
+.logoEvent-img{
+margin: 2px;
+width: 34px;
+height: 34px;
+margin-right: 1px; 
+}
+
+
+.logoGame{
+width: 40px;
+height: 40px;
+float:left;
+}
+
+.logoGame-img{
+margin: 2px;
+width: 34px;
+height: 34px;
+margin-left: 1px; 
+}
+
+.nameTeam1{
+width: 210px;
+height: 40px;
+float:left;
+cursor: default;
+font-size: 90%;
+}
+.pTeam1{
   position: relative;
   top: 25%;
-     
-     
+  cursor: default;
+  text-align: right;
+  margin-right: 10px;
 }
-.nameteam1{
-width: 150px;
+
+.logoTeam1{
+width: 40px;
 height: 40px;
 float:left;
-border:1px solid white; 
-margin: 3px;
 
 }
 
-.nameteam2{
-width: 150px;
-height: 40px;
-float:left;
-border:1px solid white; 
-margin: 3px;
-
+.logoTeam1-img{
+margin-top: 2px;
+width: 34px;
+height: 34px;
+background-clip:content-box;
 }
-.totalbet{
+
+.betTeam1{
 width: 80px;
 height:40px;
 float:left;
-
-margin:3px;
+cursor: default;
+font-size: 95%;
 }
-.score{
-width: 60px;
+.betTeam1:hover{
+width: 80px;
 height:40px;
 float:left;
-border:1px solid white; 
-margin:3px;
+cursor: default;
+font-size: 105%;
+}
+
+.scoreTeam{
+width: 120px;
+height:40px;
+float:left;
+cursor: default;
+border-color: #1b2838;
+text-align: center;
+font-size: 120%;
 }
 .timeinfo{
-width: 130px;
+width: 120px;
 height:40px;
 float:left;
-border:1px solid white; 
-margin:3px;
+cursor: default;
+font-size: 95%;
 }
+
+
+.betTeam2{
+width: 80px;
+height:40px;
+float:left;
+cursor: default;
+font-size: 95%;
+}
+.betTeam2:hover{
+width: 80px;
+height:40px;
+float:left;
+cursor: default;
+font-size: 105%;
+}
+
+.logoTeam2{
+width: 40px;
+height: 40px;
+float:left;
+}
+
+.logoTeam2-img{
+  margin-top: 2px;
+width: 34px;
+height: 34px;
+background-clip:padding-box;
+}
+
+.nameTeam2{
+width: 210px;
+height: 40px;
+float:left;
+cursor: default;
+font-size: 90%;
+}
+
+.pTeam2{
+  position: relative;
+  top: 25%;
+  cursor: default;
+  text-align: left; 
+  margin-left: 10px
+}
+
+
+
+
+
+
+
+
