@@ -60,6 +60,54 @@
       </div>
     </div>
 
+<div id="betModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style = "background-color: #1b2838;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="betmodal-header">
+          <div class="betmodal-logoTeam"> 
+            <img src="" width="40" height="40" id="betteam1logo">
+          </div>
+          <div class="betmodal-gameinfo">
+            <p class="betmodal-eventinfo" id = "beteventname"></p>
+            <p class="betmogal-teamvs" id = "betteamname"></p>
+          </div>
+          <div class="betmodal-logoTeam"> 
+            <img src="" width="40" height="40" id="betteam2logo">
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class = "betmodal-body">
+        <p style="margin:-10px;font-size: 150%;padding-bottom: 20px;">В этом противостоянии победит</p>
+          <div class="betmodal-teamwin" >
+            <img src="" width="50" height="50"  align="center" id="betmodal-logoselectteam">
+            <span id="betmodal-nameselecteam" class="betmodal-nameselecteam"></span>
+          </div>
+          <div class="betmodal-body-bet" align="left">
+            <span class="betmodal-nameselecteam">Ставка</span><input type="text" id="bet" class="form-control form-inline pull-right" placeholder="Сумма" maxlength="5"" style="width: 20%"></label>
+          </div>
+          <div class="betmodal-body-win" align="left">
+            <span class="betmodal-nameselecteam">Выигрыш</span><input type="text" id="bet" class="form-control form-inline pull-right" maxlength="5"" style="width: 20%"></label>
+            
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-block btn-success btn-lg" data-dismiss="modal">Place bet</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
     <div class="container-fluid">
       <div class="row">
           <!-- navigation bar -->
@@ -102,6 +150,69 @@
         ?>
       </div>
     </div>
+
+    <script>
+
+var classname = document.getElementsByClassName("btn-bet");
+var myFunction = function(event) {
+console.log(this.id);  
+var srcelem = event.target;
+var logoTeam1, logoTeam1, nameTeam1, nameTeam2, nameEvent;
+var matchid;
+elem = srcelem.parentNode;
+elem = elem.parentNode;
+matchid=elem.id;
+console.log(elem.id);  
+//при нажатии кнопки "ставки" на левую команду
+for (var i = 0; i < elem.children.length; i++)
+{
+  if (i==1) {nameTeam1= elem.children[i].firstChild.innerHTML;
+  console.log(nameTeam1); }
+  if (i==2) {logoTeam1= elem.children[i].firstChild.getAttribute('src');
+  console.log(logoTeam1); } 
+  if (i==6) {logoTeam2= elem.children[i].firstChild.getAttribute('src');
+  console.log(logoTeam2); } 
+  if (i==7) {nameTeam2= elem.children[i].firstChild.innerHTML;
+  console.log(nameTeam2); } 
+  if (i==8){ nameEvent = elem.children[i].firstChild.getAttribute('title');
+  console.log(nameEvent); } 
+}
+document.getElementById('betteam1logo').setAttribute('src',logoTeam1);
+document.getElementById('betteam2logo').setAttribute('src',logoTeam2);
+document.getElementById('betteamname').innerHTML=nameTeam1 +' vs ' + nameTeam2;
+document.getElementById('beteventname').innerHTML=nameEvent;
+if (this.id=='bet-sideA'){
+  document.getElementById('betmodal-logoselectteam').setAttribute('src',logoTeam1);
+  document.getElementById('betmodal-nameselecteam').innerHTML = nameTeam1;
+} else {
+  document.getElementById('betmodal-logoselectteam').setAttribute('src',logoTeam2);
+  document.getElementById('betmodal-nameselecteam').innerHTML = nameTeam2;
+}
+ 
+}
+
+
+/*elem = elem.previousElementSibling;
+logoTeam1=elem.firstChild;  
+
+nameTeam1 = logoTeam1.previousElementSibling;
+elem = srcelem.parentNode;
+elem=elem.nextElementSibling;
+logoTeam2=elem.firstChild;
+document.getElementById("winteamimage").setAttribute('src', elem1.getAttribute('src'));
+nameTeam2=elem.nextElementSibling;
+
+if (this.id=='bet-sideA'){document.getElementById("winteamimage").setAttribute('src', logoTeam1.getAttribute('src'));}
+document.getElementById('teamwin').innerHTML = elem.innerHTML;
+
+} */
+
+for (var y = 0; y < classname.length; y++) {
+    classname[y].addEventListener('click', myFunction, false);
+}
+
+
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -18,6 +18,27 @@ body {
   font-size:inherit;
 }
 
+
+
+.btn-bet {
+    display: block;
+    margin-bottom: 0;
+    width: 97%;
+    height: 97%;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: default;
+    background-color: #364C68;
+    white-space: nowrap;
+    
+    border-radius: 5px;
+    font-size: 14px;
+border: 0;
+    padding: 0;
+}
+
+
 .activematches{
 
 width: 900px;
@@ -69,7 +90,7 @@ font-size: 90%;
 }
 .pTeam1{
   position: relative;
-  top: 25%;
+  top: 10%;
   cursor: default;
   text-align: right;
   margin-right: 10px;
@@ -160,16 +181,70 @@ font-size: 90%;
 
 .pTeam2{
   position: relative;
-  top: 25%;
+  top: 10%;
   cursor: default;
   text-align: left; 
   margin-left: 10px
 }
+.modal-header{
+  background-color: #556D8B;
+}
+.betmodal-header{
+  width: 97%;
+  height: 40px;
+
+}
+.modal-dialog {
+width: 500px;
+}
+.modal-body{
+  background-color: #1b2838;
+}
+.modal-footer{
+  background-color: #1b2838;
+  margin-top: 0px; 
+  text-align: center;
+}
+.betmodal-logoTeam{
+width: 10%;
+height: 40px;
+float:left;
+}
+
+.betmodal-gameinfo{
+width: 77%;
+height: 40px;
+float:left;
+}
 
 
+.betmogal-teamvs{
+  margin-bottom: 10px;
+  font-size: 130%;
+  padding: 0px;
+}
+.betmodal-eventinfo{
+  margin: -5px;
+  font-size: 80%;
+  padding: 0px;
+}
+.betmodal-teamwin{
+  width: 500px;
+  height: 50px;
+  padding-bottom: 25px;
+}
+.betmodal-nameselecteam{
+  
+  font-size: 200%;
+}
+.betmodal-body-bet{
+  width: 480px;
+  height: 50px;
+ padding: 20px;
+}
 
-
-
-
-
-
+.betmodal-body-win{
+  width: 480px;
+  height: 50px;
+  padding: 20px;
+}

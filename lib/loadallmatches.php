@@ -66,8 +66,7 @@ if ($days >= 3) break;
 			}
 			
 			//записываем матч в базу данных
-			$q= "SELECT id FROM matches WHERE id = $matchesInfo[0]";
-			$res=$connect->query($q);
+			
 			if ($res->num_rows==0){
 				$q="INSERT INTO matches VALUES 
 				('$matchesInfo[0]','$matchesInfo[1]','$matchesInfo[2]','$matchesInfo[3]','$matchesInfo[4]','$matchesInfo[5]','$matchesInfo[6]','$matchesInfo[7]','$matchesInfo[8]')";
@@ -115,14 +114,7 @@ foreach ($liveMatches->find('.live-match') as $liveMatch){ //поиск всех
 			echo $q;
 			$res=$connect->query($q);
 
-			//удаляем из таблицы грядущие матчи, то которые начались
-			$q= "SELECT id FROM matches WHERE id = $matchesInfo[0]";
-			$res=$connect->query($q);
-			if ($res->num_rows>0){
-				$q1 = "DELETE FROM matches WHERE id =$matchesInfo[0]";
-				$res=$connect->query($q1);
-				echo $q1;
-			}
+			
 	}
 }
 }
