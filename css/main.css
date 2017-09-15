@@ -201,7 +201,7 @@ width: 500px;
   background-color: #1b2838;
 }
 .modal-footer{
-  background-color: #1b2838;
+  background-color: #556D8B;
   margin-top: 0px; 
   text-align: center;
 }
@@ -231,20 +231,23 @@ float:left;
 .betmodal-teamwin{
   width: 500px;
   height: 50px;
-  padding-bottom: 25px;
+  margin-bottom: 20px;
 }
 .betmodal-nameselecteam{
   
   font-size: 200%;
 }
 .betmodal-body-bet{
-  width: 480px;
+  width: 460px;
   height: 50px;
- padding: 20px;
+ padding: 10px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 }
 
 .betmodal-body-win{
-  width: 480px;
+  width: 460px;
   height: 50px;
-  padding: 20px;
+  padding: 10px;
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 }

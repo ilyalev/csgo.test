@@ -89,7 +89,7 @@
             <span id="betmodal-nameselecteam" class="betmodal-nameselecteam"></span>
           </div>
           <div class="betmodal-body-bet" align="left">
-            <span class="betmodal-nameselecteam">Ставка</span><input type="text" id="bet" class="form-control form-inline pull-right" placeholder="Сумма" maxlength="5"" style="width: 20%"></label>
+            <span class="betmodal-nameselecteam">Ставка</span><input type="text" id="bet" class="form-control form-inline pull-right" placeholder="Сумма" maxlength="5"" style="width: 20%"  autofocus></label>
           </div>
           <div class="betmodal-body-win" align="left">
             <span class="betmodal-nameselecteam">Выигрыш</span><input type="text" id="bet" class="form-control form-inline pull-right" maxlength="5"" style="width: 20%"></label>
