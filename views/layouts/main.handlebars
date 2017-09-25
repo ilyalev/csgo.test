@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+  <title>Dashboard Template for Bootstrap</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/dashboard.css" rel="stylesheet">
+
+  <!-- Just for debugging purposes. Don't actually copy this line! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style>
+  @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+  </style>
+  <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.php">Project name</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+    
+        </ul>
+   		</div>
+    </div>
+  </div>
+
+
+<div id="betModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style = "background-color: #1b2838;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="betmodal-header">
+          <div class="betmodal-logoTeam"> 
+            <img src="" width="40" height="40" id="betteam1logo">
+          </div>
+          <div class="betmodal-gameinfo">
+            <p class="betmodal-eventinfo" id = "beteventname"></p>
+            <p class="betmogal-teamvs" id = "betteamname"></p>
+          </div>
+          <div class="betmodal-logoTeam"> 
+            <img src="" width="40" height="40" id="betteam2logo">
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        
+        <p style="margin:-10px;font-size: 150%;padding-bottom: 20px;">Place bet on:</p>
+          <div class="betmodal-teamwin" >
+            <img src="" width="50" height="50"  align="center" id="betmodal-logoselectteam">
+            <span id="betmodal-nameselecteam" class="betmodal-nameselecteam" style="margin-left: 20px; margin-top: 10px;"></span>
+          </div>
+          <div class="betmodal-body-bet" align="left">
+            <span class="betmodal-nameselecteam">Ставка</span><input type="text" id="bet" class="betinput pull-right" style="text-align: right;" placeholder="Bet" maxlength="5"  autofocus="true">
+          </div>
+          <div class="betmodal-body-win" align="left">
+            <span class="betmodal-nameselecteam">Выигрыш</span><input type="text" id="betwin" class="wininput" maxlength="5" readonly>
+            
+          </div>
+          <button type="button" class="btn btn-block btn-success btn-sm" data-toggle="collapse" data-target="#prediction_text" >Prediction</button>
+          <div id="prediction_text" class="collapse">
+          <textarea class="modal-body-betform-control" style="width: 460px;height: 150px;color: black;" id="comment" row="7"></textarea>
+          </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-block btn-success btn-lg" data-dismiss="modal">Place bet</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  <div class="container-fluid">
+    <div class="row">
+
+    <!-- navigation bar -->
+      <div class="col-md-2" style = "background-color: #1b2838; border: 1px solid black" align="left">
+        <ul class="nav nav-sidebar">
+				  <li><a href="#">Matches</a></li>
+				  <li><a href="csgo_matches.php"><img src="images/csgo.png" width="25">CS:GO</a></li>
+				  <li><a href="#"><img src="images/dota2.png" width="25">Dota2</a></li>
+				  <li><a href="#"><img src="images/lol.png" width="25">LOL</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+				  <li><a href="#">Result</a></li>
+				  <li><a href="csgo_result.php"><img src="images/csgo.png" width="25">CS:GO</a></li>
+				  <li><a href="#"><img src="images/dota2.png" width="25"> Dota2</a></li>
+				  <li><a href="active_m.php"><img src="images/lol.png" width="25"> live</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+				  <li><a href="loadinv.php">Inventory</a></li>
+				  <li><a href="history.php">History</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+				  <li><a href="#">loadmatches</a></li>
+				  <li><a href="lib/loadallmatches.php">load all</a></li>
+				  <li><a href="lib/dota2_gg.php">loadresult</a></li>
+				</ul>
+      </div>
+
+<!-- main page -->
+      
+      <div class="col-md-8 main" style = "background-color: #1b2838; border: 1px solid black">
+       
+  
+       {{{ body }}}
+        
+        
+     	</div>
+      <!-- user block -->
+      <div class="col-md-2" style = "background-color: #1b2838; border: 1px solid black; text-align: left"  align="right">
+				<h3 class="page-header">User info</h3>
+
+			</div>
+     
+    </div>
+  </div>
+<script>
+
+var classname = document.getElementsByClassName("btn-bet");
+var myFunction = function(event) {
+console.log(this.id);  
+var srcelem = event.target;
+var logoTeam1, logoTeam1, nameTeam1, nameTeam2, nameEvent;
+var matchid;
+elem = srcelem.parentNode;
+elem = elem.parentNode;
+matchid=elem.id;
+console.log(elem.id); 
+ 
+//при нажатии кнопки "ставки" на левую команду
+/*for (var i = 0; i < elem.children.length; i++)
+{
+  if (i==1) {nameTeam1= elem.children[i].firstChild.innerHTML;
+  console.log(nameTeam1); }
+  if (i==2) {logoTeam1= elem.children[i].firstChild.getAttribute('src');
+  console.log(logoTeam1); } 
+  if (i==6) {logoTeam2= elem.children[i].firstChild.getAttribute('src');
+  console.log(logoTeam2); } 
+  if (i==7) {nameTeam2= elem.children[i].firstChild.innerHTML;
+  console.log(nameTeam2); } 
+  if (i==8){ nameEvent = elem.children[i].firstChild.getAttribute('title');
+  console.log(nameEvent); } 
+}*/
+  nameTeam1= elem.children[1].firstChild.innerHTML;
+  console.log(nameTeam1);
+  logoTeam1= elem.children[2].firstChild.src;
+  console.log(logoTeam1);  
+  logoTeam2= elem.children[6].firstChild.getAttribute('src');
+  console.log(logoTeam2);  
+  nameTeam2= elem.children[7].firstChild.innerHTML;
+  console.log(nameTeam2); 
+  nameEvent = elem.children[8].firstChild.getAttribute('title');
+  console.log(nameEvent);
+
+
+
+document.getElementById('betteam1logo').setAttribute('src',logoTeam1);
+document.getElementById('betteam2logo').setAttribute('src',logoTeam2);
+document.getElementById('betteamname').innerHTML=nameTeam1 +' vs ' + nameTeam2;
+document.getElementById('beteventname').innerHTML=nameEvent;
+if (this.id=='bet-sideA'){
+  document.getElementById('betmodal-logoselectteam').setAttribute('src',logoTeam1);
+  document.getElementById('betmodal-nameselecteam').innerHTML = nameTeam1;
+} else {
+  document.getElementById('betmodal-logoselectteam').setAttribute('src',logoTeam2);
+  document.getElementById('betmodal-nameselecteam').innerHTML = nameTeam2;
+}
+ 
+}
+
+for (var y = 0; y < classname.length; y++) {
+    classname[y].addEventListener('click', myFunction, false);
+}
+
+
+    </script>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/docs.min.js"></script>
+</body>
+</html>

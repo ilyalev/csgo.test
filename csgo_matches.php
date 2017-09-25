@@ -29,10 +29,12 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-     <style>
-    @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-    </style>
     
+<style>
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+</style>
+
+
   </head>
 
   <body>
@@ -82,22 +84,25 @@
         </div>
       </div>
       <div class="modal-body">
-        <div class = "betmodal-body">
-        <p style="margin:-10px;font-size: 150%;padding-bottom: 20px;">В этом противостоянии победит</p>
+        
+        <p style="margin:-10px;font-size: 150%;padding-bottom: 20px;">Place bet on:</p>
           <div class="betmodal-teamwin" >
             <img src="" width="50" height="50"  align="center" id="betmodal-logoselectteam">
-            <span id="betmodal-nameselecteam" class="betmodal-nameselecteam"></span>
+            <span id="betmodal-nameselecteam" class="betmodal-nameselecteam" style="margin-left: 20px; margin-top: 10px;"></span>
           </div>
           <div class="betmodal-body-bet" align="left">
-            <span class="betmodal-nameselecteam">Ставка</span><input type="text" id="bet" class="form-control form-inline pull-right" placeholder="Сумма" maxlength="5"" style="width: 20%"  autofocus></label>
+            <span class="betmodal-nameselecteam">Ставка</span><input type="text" id="bet" class="betinput pull-right" style="text-align: right;" placeholder="Bet" maxlength="5"  autofocus="true">
           </div>
           <div class="betmodal-body-win" align="left">
-            <span class="betmodal-nameselecteam">Выигрыш</span><input type="text" id="bet" class="form-control form-inline pull-right" maxlength="5"" style="width: 20%"></label>
+            <span class="betmodal-nameselecteam">Выигрыш</span><input type="text" id="betwin" class="wininput" maxlength="5" readonly>
             
           </div>
-
-        </div>
+          <button type="button" class="btn btn-block btn-success btn-sm" data-toggle="collapse" data-target="#prediction_text" >Prediction</button>
+          <div id="prediction_text" class="collapse">
+          <textarea class="modal-body-betform-control" style="width: 460px;height: 150px;color: black;" id="comment" row="7"></textarea>
+          </div>
       </div>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-block btn-success btn-lg" data-dismiss="modal">Place bet</button>
       </div>

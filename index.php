@@ -71,7 +71,7 @@
       <div class="row">
 
       <!-- navigation bar -->
-        <div class="col-md-2" style = "background-color: #1b2838; border: 1px solid black" align="left">
+        <div class="col-md-2" style = "background-color: #384D66; border: 1px solid black" align="left">
           <?php 
             require_once("lib/navbar.php");
           ?>
@@ -80,8 +80,8 @@
 <!-- main page -->
         <?php
          if($_SESSION['steamid']){
-          echo '<div class="col-md-8 main" style = "background-color: #1b2838; border: 1px solid black">';
-         }else echo '<div class="col-md-10 main" style = "background-color: #1b2838; border: 1px solid black">';
+          echo '<div class="col-md-8 main" style = "background-color: #384D66; border: 1px solid black">';
+         }else echo '<div class="col-md-10 main" style = "background-color: #384D66; border: 1px solid black">';
         ?>
     
           Info
