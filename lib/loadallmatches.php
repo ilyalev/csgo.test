@@ -42,37 +42,37 @@ if ($days >= 3) break;
 				if ($tableTd->class == "time") {    // если класс Time значит там время вытаскиваем его   print(date('d-m-Y H:i:s',$timeMatches));
 
 					$timeMatches = substr(explode('"',$tableTd->children(0))[5],0,10);
-					$matchesInfo[1]=$timeMatches;
+					$matchesInfo[1]=$timeMatches;   //дата матча
 				}
 				if ($tableTd->class == "team-cell") {
 						if ($team1==false){
-							$matchesInfo[2] = $tableTd->find('img',0)->src;
-					 		$matchesInfo[3] = $tableTd->find('img',0)->title;
+							$matchesInfo[2] = $tableTd->find('img',0)->src;  //лого команды 1
+					 		$matchesInfo[3] = $tableTd->find('img',0)->title; //название команды 1
 							$team1 = true;
 						} else {
-							$matchesInfo[4] = $tableTd->find('img',0)->src;
-					 		$matchesInfo[5] = $tableTd->find('img',0)->title;
+							$matchesInfo[4] = $tableTd->find('img',0)->src; //лого кодманды 1
+					 		$matchesInfo[5] = $tableTd->find('img',0)->title; //название команды 1
 					 		$team1=false;
 						}
 				}
 				if ($tableTd->class == "event"){
-					$matchesInfo[6] = $tableTd->find('img',0)->src;
-					$matchesInfo[7] = $tableTd->find('img',0)->title;
+					$matchesInfo[6] = $tableTd->find('img',0)->src; //лого Эвента
+					$matchesInfo[7] = $tableTd->find('img',0)->title; //название Эвента
 				}
 				if ($tableTd->class == "star-cell"){
-					$matchesInfo[8] = trim($tableTd->plaintext);
+					$matchesInfo[8] = trim($tableTd->plaintext); //Формат матча
 					
 				}
 			}
 			
 			//записываем матч в базу данных
 			
-			if ($res->num_rows==0){
+			if (strripos($matchesInfo[6], 'nologo.png') > 0 ) $matchesInfo[6]='images/nologo.png';
 				$q="INSERT INTO matches VALUES 
-				('$matchesInfo[0]','$matchesInfo[1]','$matchesInfo[2]','$matchesInfo[3]','$matchesInfo[4]','$matchesInfo[5]','$matchesInfo[6]','$matchesInfo[7]','$matchesInfo[8]')";
+				('$matchesInfo[0]','csgo','$matchesInfo[1]','$matchesInfo[2]','$matchesInfo[3]','','','$matchesInfo[4]','$matchesInfo[5]','$matchesInfo[6]','$matchesInfo[7]','$matchesInfo[8]',1)";
 				$res=$connect->query($q);
 				echo $q.'<br>';
-			}
+			
 		}
 	}
 }
@@ -99,18 +99,18 @@ foreach ($liveMatches->find('.live-match') as $liveMatch){ //поиск всех
 			 //		заносим в базу лайв матчи и удаляем из базы будущие матчи
 				if ($tableTd->class == "teams"){
 					if ($team1==false){
-							$matchesInfo[2] = $tableTd->find('img',0)->src;
-					 		$matchesInfo[3] = $tableTd->find('img',0)->title;
+							$matchesInfo[2] = $tableTd->find('img',0)->src; //team1 logo
+					 		$matchesInfo[3] = $tableTd->find('img',0)->title; //name team1
 							$team1 = true;
 						} else {
-							$matchesInfo[4] = $tableTd->find('img',0)->src;
-					 		$matchesInfo[5] = $tableTd->find('img',0)->title;
+							$matchesInfo[4] = $tableTd->find('img',0)->src; //team2 logo
+					 		$matchesInfo[5] = $tableTd->find('img',0)->title; //team2 name
 					 		$team1=false;
 						}
 				}
 		
 		}
-		$q = "INSERT INTO livematches VALUES('$matchesInfo[0]','live','$matchesInfo[2]','$matchesInfo[3]','$matchesInfo[4]','$matchesInfo[5]','$matchesInfo[6]','$matchesInfo[7]')";
+		$q = "INSERT INTO matches VALUES('$matchesInfo[0]','csgo','','$matchesInfo[2]','$matchesInfo[3]','','','$matchesInfo[4]','$matchesInfo[5]','$matchesInfo[6]','$matchesInfo[7]','',0)";
 			echo $q;
 			$res=$connect->query($q);
 
@@ -153,21 +153,21 @@ foreach ($resultAll->find('.results-sublist') as $resultSublist) { //наход�
 
 				if ($resultTableTd->class=="team-cell"){
 					$i++;
-					$matchesResult[$i] = $resultTableTd->children(0)->find('img',0)->src;
+					$matchesResult[$i] = $resultTableTd->children(0)->find('img',0)->src; //team1 logo
 					$i++;
-					$matchesResult[$i]= $resultTableTd->children(0)->find('img',0)->title;
+					$matchesResult[$i]= $resultTableTd->children(0)->find('img',0)->title; //team1 name
 				}
 				if ($resultTableTd->class=="result-score"){
 					$i++;
-					$matchesResult[$i]=$resultTableTd->find('span',0)->plaintext;
+					$matchesResult[$i]=$resultTableTd->find('span',0)->plaintext; //team1 score
 					$i++;
-					$matchesResult[$i]=$resultTableTd->find('span',1)->plaintext;
+					$matchesResult[$i]=$resultTableTd->find('span',1)->plaintext; //team2 score
 				}
 				if ($resultTableTd->class=="event"){
 					$i++;
-					$matchesResult[$i]= $resultTableTd->find('img',0)->src;
+					$matchesResult[$i]= $resultTableTd->find('img',0)->src; //logo event
 					$i++;
-					$matchesResult[$i]=$resultTableTd->find('img',0)->title;
+					$matchesResult[$i]=$resultTableTd->find('img',0)->title; //name event
 				}
 				if ($resultTableTd->class == "star-cell"){
 					$i++;
@@ -179,8 +179,9 @@ foreach ($resultAll->find('.results-sublist') as $resultSublist) { //наход�
 				$res=$connect->query($q);
 				//echo $matchesResult[3],$matchesResult[4];
 				if ($res->num_rows==0){
+					if (strripos($matchesInfo[6], 'nologo.png') > 0 ) $matchesInfo[7]='images/nologo.png';
 					$q="INSERT INTO result VALUES 
-					('$matchesResult[0]','$matchesResult[1]','$matchesResult[2]','$matchesResult[3]','$matchesResult[4]','$matchesResult[5]','$matchesResult[6]','$matchesResult[7]','$matchesResult[8]','$matchesResult[9]')";
+					($matchesResult[0]','csgo','',$matchesResult[1]','$matchesResult[2]','$matchesResult[3]','$matchesResult[4]','$matchesResult[5]','$matchesResult[6]','$matchesResult[7]','$matchesResult[8]','$matchesResult[9]',)";
 					$res=$connect->query($q);
 					echo $q.'<br>';
 				}
