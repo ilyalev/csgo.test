@@ -31,7 +31,7 @@ $upcomingMatches = $html->find('.upcoming-matches',0);
 foreach ($upcomingMatches->find('.match-day') as $matchDay) { //находим матчи по дням
 //	echo '<tr ><td colspan = "6">'.$matchDay->children(0)->plaintext.'</td></tr>';   // выводим день матчей
 $days++;
-if ($days >= 3) break;
+if ($days > 1) break;
 	foreach ($matchDay->find('a') as $matchDayA){
 		$matchesInfo[0] = explode("/", $matchDayA->href)[2];   // получаем ИД матча
 
@@ -64,10 +64,12 @@ if ($days >= 3) break;
 					
 				}
 			}
-			
+			if (strripos($matchesInfo[6], 'nologo.png') > 0 ) $matchesInfo[6]='images/nologo.png';
+			if ($matchesInfo[3]=='') {$matchesInfo[3]='TBD';$matchesInfo[2]='images/nologo.png';}
+			if ($matchesInfo[5]=='') {$matchesInfo[5]='TBD';$matchesInfo[4]='images/nologo.png';}
 			//записываем матч в базу данных
 			
-			if (strripos($matchesInfo[6], 'nologo.png') > 0 ) $matchesInfo[6]='images/nologo.png';
+			
 				$q="INSERT INTO matches VALUES 
 				('$matchesInfo[0]','csgo','$matchesInfo[1]','$matchesInfo[2]','$matchesInfo[3]','','','$matchesInfo[4]','$matchesInfo[5]','$matchesInfo[6]','$matchesInfo[7]','$matchesInfo[8]',1)";
 				$res=$connect->query($q);
@@ -110,7 +112,7 @@ foreach ($liveMatches->find('.live-match') as $liveMatch){ //поиск всех
 				}
 		
 		}
-		$q = "INSERT INTO matches VALUES('$matchesInfo[0]','csgo','','$matchesInfo[2]','$matchesInfo[3]','','','$matchesInfo[4]','$matchesInfo[5]','$matchesInfo[6]','$matchesInfo[7]','',0)";
+		$q = "INSERT INTO livematches VALUES('$matchesInfo[0]','csgo','','$matchesInfo[2]','$matchesInfo[3]','','','$matchesInfo[4]','$matchesInfo[5]','$matchesInfo[6]','$matchesInfo[7]','',0)";
 			echo $q;
 			$res=$connect->query($q);
 

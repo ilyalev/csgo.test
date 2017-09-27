@@ -1,10 +1,73 @@
 body {
   background-color: #222222;
   color: white;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Encode Sans Expanded', sans-serif;  
   text-align: center;
-      
-    }
+  padding-top: 50px;
+  
+  padding-bottom: 55px;
+
+}
+
+.container-fluid{
+  padding-left: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+
+}
+
+.userinfo{
+  height: 100%;
+  width: 20%;
+  margin: 0px;
+  padding: 0px;
+  float: right;
+}
+
+.infopanel{
+  width: 100%
+  height: 80px;
+  background-color: blue;
+  display: block;
+}
+.chatwindow{
+  
+  width: 95%;
+  height: 400px;
+  border: 1px solid black;
+  margin-left: 2%;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+.chatbutton{
+ width: 95%;
+  height: 40px;
+  border: 2px solid black;
+  margin: 2%;
+  background-color: white; 
+}
+.left-navbar{
+  
+  width: 10%;
+  float: left;
+background-color: #384D66; 
+
+
+}
+.chat{
+
+width: 20%;
+float: left;
+background-color: #384D66; 
+
+}
+.main{
+width: 70%;
+float: left;
+background-color: #384D66; 
+border: 1px solid black;
+}
 
 .btn-link{
   border:none;
@@ -41,7 +104,8 @@ body {
 
 .activematches{
 
-width: 950px;
+width: 95%;
+margin-left: 2%;
 height:40px;
 background-color: #384D66;
 box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */

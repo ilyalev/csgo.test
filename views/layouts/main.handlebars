@@ -57,51 +57,51 @@
 <div id="betModal" class="modal fade" role="dialog" >
   <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content" style = "background-color: #1b2838;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <div class="betmodal-header">
-          <div class="betmodal-logoTeam"> 
-            <img src="" width="40" height="40" id="betteam1logo">
-          </div>
-          <div class="betmodal-gameinfo">
-            <p class="betmodal-eventinfo" id = "beteventname"></p>
-            <p class="betmogal-teamvs" id = "betteamname"></p>
-          </div>
-          <div class="betmodal-logoTeam"> 
-            <img src="" width="40" height="40" id="betteam2logo">
-          </div>
+  <!-- Modal content-->
+  <div class="modal-content" style = "background-color: #1b2838;">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <div class="betmodal-header">
+        <div class="betmodal-logoTeam"> 
+          <img src="" width="40" height="40" id="betteam1logo">
         </div>
+        <div class="betmodal-gameinfo">
+          <p class="betmodal-eventinfo" id = "beteventname"></p>
+          <p class="betmogal-teamvs" id = "betteamname"></p>
+        </div>
+        <div class="betmodal-logoTeam"> 
+          <img src="" width="40" height="40" id="betteam2logo">
         </div>
       </div>
-      <div class="modal-body">
-        
-        <p style="margin:-10px;font-size: 150%;padding-bottom: 20px;">Place bet on:</p>
-          <div class="betmodal-teamwin" >
-            <img src="" width="50" height="50"  align="center" id="betmodal-logoselectteam">
-            <span id="betmodal-nameselecteam" class="betmodal-nameselecteam" style="margin-left: 20px; margin-top: 10px;"></span>
-          </div>
-          <div class="betmodal-body-bet" align="left">
-            <span class="betmodal-nameselecteam">Ставка</span><input type="text" id="bet" class="betinput pull-right" style="text-align: right;" placeholder="Bet" maxlength="5"  autofocus="true">
-          </div>
-          <div class="betmodal-body-win" align="left">
-            <span class="betmodal-nameselecteam">Выигрыш</span><input type="text" id="betwin" class="wininput" maxlength="5" readonly>
-            
-          </div>
-          <button type="button" class="btn btn-block btn-success btn-sm" data-toggle="collapse" data-target="#prediction_text" >Prediction</button>
-          <div id="prediction_text" class="collapse">
-          <textarea class="modal-body-betform-control" style="width: 460px;height: 150px;color: black;" id="comment" row="7"></textarea>
-          </div>
-      </div>
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-block btn-success btn-lg" data-dismiss="modal">Place bet</button>
       </div>
     </div>
-
+    <div class="modal-body">
+      
+      <p style="margin:-10px;font-size: 150%;padding-bottom: 20px;">Place bet on:</p>
+        <div class="betmodal-teamwin" >
+          <img src="" width="50" height="50"  align="center" id="betmodal-logoselectteam">
+          <span id="betmodal-nameselecteam" class="betmodal-nameselecteam" style="margin-left: 20px; margin-top: 10px;"></span>
+        </div>
+        <div class="betmodal-body-bet" align="left">
+          <span class="betmodal-nameselecteam">Ставка</span><input type="text" id="bet" class="betinput pull-right" style="text-align: right;" placeholder="Bet" maxlength="5"  autofocus="true">
+        </div>
+        <div class="betmodal-body-win" align="left">
+          <span class="betmodal-nameselecteam">Выигрыш</span><input type="text" id="betwin" class="wininput" maxlength="5" readonly>
+          
+        </div>
+        <button type="button" class="btn btn-block btn-success btn-sm" data-toggle="collapse" data-target="#prediction_text" >Prediction</button>
+        <div id="prediction_text" class="collapse">
+        <textarea class="modal-body-betform-control" style="width: 460px;height: 150px;color: black;" id="comment" row="7"></textarea>
+        </div>
+    </div>
+    
+    <div class="modal-footer">
+      <button type="button" class="btn btn-block btn-success btn-lg" data-dismiss="modal">Place bet</button>
+    </div>
   </div>
+
 </div>
+
 
 
   <div class="container-fluid">
@@ -150,7 +150,7 @@
     </div>
   </div>
 <script>
-var matches;
+
 var classname = document.getElementsByClassName("btn-bet");
 var myFunction = function(event) {
 console.log(this.id);  
@@ -161,9 +161,7 @@ elem = elem.parentNode;
 console.log(elem.id); 
 
 var divz = document.getElementById(elem.id);
-for (var i=0; i < divz.children.length; i++ ){
-  console.log(divz.children[i].innerHTML);
-}
+
 document.getElementById('betteam1logo').setAttribute('src',divz.children[2].children[0].getAttribute('src'));
 document.getElementById('betteam2logo').setAttribute('src',divz.children[6].children[0].getAttribute('src'));
 document.getElementById('betteamname').innerHTML=divz.children[1].children[0].innerHTML +' vs ' + divz.children[7].children[0].innerHTML;

@@ -1,8 +1,8 @@
 <?php
 	require_once('bdconfig.php');
-	$q='SELECT * FROM users WHERE steamID='.$_SESSION['steamid'];
+	$qo='SELECT * FROM users WHERE steamID='.$_SESSION['steamid'];
 	//echo $q.'select';
-	$result = $connect->query($q);
+	$result = $connect->query($qo);
 	if ($result->num_rows>0){
 	$row = $result->fetch_assoc();	
 	$_SESSION['balance']= $row['balance'];
@@ -10,9 +10,9 @@
 	{
 		$q='INSERT INTO users(steamID,balance) VALUES('.$_SESSION['steamid'].',0)';
 		//echo $q.'insert';
-		$result = $connect->query($q);
+		$result = $connect->query($qo);
 		$_SESSION['balance']= 0.00;
 	}
-mysqli_close($connect);
+
 
 ?>

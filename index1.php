@@ -1,5 +1,6 @@
 <?php
     require_once ('steamauth/steamauth.php');
+    require_once('lib/checkbalance.php');
   # You would uncomment the line beneath to make it refresh the data every time the page is loaded
   // unset($_SESSION['steam_uptodate']);
 ?>
@@ -11,16 +12,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
-
+   
+    <script src="https://use.fontawesome.com/a027d900ea.js"></script>
     <title>Dashboard Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
    
-<link href="css/main.css" rel="stylesheet">
+
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -29,35 +29,38 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded" rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
   </head>
 
   <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="index.php">Bet site</a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
+          <div class="userinfo" align="right">
+            
             <?php
               if(!isset($_SESSION['steamid'])) {
                 loginbutton(rectangle); //login button
-              } 
+              } else {
+                
+                echo $_SESSION['steam_personaname'].'&nbsp;'.$_SESSION['balance'].'&nbsp;<i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;&nbsp;';
+                echo '<img src="'.$_SESSION['steam_avatarmedium'].'" width="50">';
+
+              }
             ?>  
-          </ul>
+          </div>
         </div>
       </div>
     </div>
 
+
 <div id="betModal" class="modal fade" role="dialog" >
   <div class="modal-dialog">
-
-    <!-- Modal content-->
+  <!-- Modal content-->
   <div class="modal-content" style = "background-color: #1b2838;">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -99,42 +102,46 @@
       <button type="button" class="btn btn-block btn-success btn-lg" data-dismiss="modal">Place bet</button>
     </div>
   </div>
+
+</div>
+<div class="infopanel">
+  1
 </div>
 
-  <div class="container-fluid">
+<div class="container-fluid">
+
+
   <!-- navigation bar -->
-    <div class="left-navbar" align="left">
-      <?php 
-        require_once("lib/navbar.php");
-      ?>
-    </div>
-
-<!-- main page -->
-    <div class="main" style = "">
-
-    <h3 >Up coming matches CS:GO</h3>
-    <?php
-    require_once('lib/csgo_m.php');
-    ?>
- 
-    <h3 >Live matches CS:GO</h3>
-    <?php
-    require_once('lib/csgo_l.php');
-    ?>
-
-    <h3 >Result matches CS:GO</h3>
-    <?php
-    require_once('lib/csgo_r.php');
+  <div class="left-navbar navbar-fixed-topt" align="left">
+    <?php 
+      require_once("lib/navbar.php");
     ?>
   </div>
-  
-  <!-- user block -->
+
+<!-- main page -->
+  <div class="main" style = "">
+    <h3 >Up coming matches CS:GO</h3>
+      <?php
+        require_once('lib/csgo_m.php');
+      ?>
+
+    <h3 >Live matches CS:GO</h3>
+      <?php
+        require_once('lib/csgo_l.php');
+      ?>
+
+    <h3 >Result matches CS:GO</h3>
+      <?php
+        require_once('lib/csgo_r.php');
+      ?>
+  </div>
+    <!-- user block -->
   <?php
-  if($_SESSION['steamid']){
-    require_once ('steamauth/userInfo.php');
-    require_once('lib/checkbalance.php');
-    require_once("lib/userblock.php");
-  }
+    if($_SESSION['steamid']){
+      require_once ('steamauth/userInfo.php');
+      require_once('lib/checkbalance.php');
+      require_once("lib/userblock.php");
+    }
 
   ?>
 
@@ -144,74 +151,48 @@
   copyrigth
 </div>
 
- <script>
-   
+<script>
+
 var classname = document.getElementsByClassName("btn-bet");
 var myFunction = function(event) {
 console.log(this.id);  
 var srcelem = event.target;
-var logoTeam1, logoTeam1, nameTeam1, nameTeam2, nameEvent;
-var matchid;
+var elem;
 elem = srcelem.parentNode;
 elem = elem.parentNode;
-matchid=elem.id;
-console.log(elem.id);  
-//при нажатии кнопки "ставки" на левую команду
-for (var i = 0; i < elem.children.length; i++)
-{
-  if (i==1) {nameTeam1= elem.children[i].firstChild.innerHTML;
-  console.log(nameTeam1); }
-  if (i==2) {logoTeam1= elem.children[i].firstChild.getAttribute('src');
-  console.log(logoTeam1); } 
-  if (i==6) {logoTeam2= elem.children[i].firstChild.getAttribute('src');
-  console.log(logoTeam2); } 
-  if (i==7) {nameTeam2= elem.children[i].firstChild.innerHTML;
-  console.log(nameTeam2); } 
-  if (i==8){ nameEvent = elem.children[i].firstChild.getAttribute('title');
-  console.log(nameEvent); } 
-}
-document.getElementById('betteam1logo').setAttribute('src',logoTeam1);
-document.getElementById('betteam2logo').setAttribute('src',logoTeam2);
-document.getElementById('betteamname').innerHTML=nameTeam1 +' vs ' + nameTeam2;
-document.getElementById('beteventname').innerHTML=nameEvent;
+console.log(elem.id); 
+
+var divz = document.getElementById(elem.id);
+
+document.getElementById('betteam1logo').setAttribute('src',divz.children[2].children[0].getAttribute('src'));
+document.getElementById('betteam2logo').setAttribute('src',divz.children[6].children[0].getAttribute('src'));
+document.getElementById('betteamname').innerHTML=divz.children[1].children[0].innerHTML +' vs ' + divz.children[7].children[0].innerHTML;
+document.getElementById('beteventname').innerHTML=divz.children[8].children[0].getAttribute('title');
+
 if (this.id=='bet-sideA'){
-  document.getElementById('betmodal-logoselectteam').setAttribute('src',logoTeam1);
-  document.getElementById('betmodal-nameselecteam').innerHTML = nameTeam1;
-} else {
-  document.getElementById('betmodal-logoselectteam').setAttribute('src',logoTeam2);
-  document.getElementById('betmodal-nameselecteam').innerHTML = nameTeam2;
+  document.getElementById('betmodal-logoselectteam').setAttribute('src',divz.children[2].children[0].getAttribute('src'));
+  document.getElementById('betmodal-nameselecteam').innerHTML = divz.children[1].children[0].innerHTML;
+  } else {
+      document.getElementById('betmodal-logoselectteam').setAttribute('src',divz.children[6].children[0].getAttribute('src'));
+      document.getElementById('betmodal-nameselecteam').innerHTML = divz.childNodes[7].children[0].innerHTML;
+    }
+
 }
- 
-}
+  
 
-
-/*elem = elem.previousElementSibling;
-logoTeam1=elem.firstChild;  
-
-nameTeam1 = logoTeam1.previousElementSibling;
-elem = srcelem.parentNode;
-elem=elem.nextElementSibling;
-logoTeam2=elem.firstChild;
-document.getElementById("winteamimage").setAttribute('src', elem1.getAttribute('src'));
-nameTeam2=elem.nextElementSibling;
-
-if (this.id=='bet-sideA'){document.getElementById("winteamimage").setAttribute('src', logoTeam1.getAttribute('src'));}
-document.getElementById('teamwin').innerHTML = elem.innerHTML;
-
-} */
 
 for (var y = 0; y < classname.length; y++) {
     classname[y].addEventListener('click', myFunction, false);
 }
 
 
-    </script>
-
+    </script
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/docs.min.js"></script>
+
   </body>
 </html>

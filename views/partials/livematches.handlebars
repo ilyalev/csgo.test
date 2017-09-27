@@ -1,0 +1,34 @@
+<h3 >live matches CS:GO</h3>
+{{#each matches}}
+<!-- {{this.id}} -->
+{{#if status}}
+<div class="activematches" id ="{{id}}">
+	<div class ="logoGame">
+		<img src="images/csgo.png" class="logoGame-img" >
+	</div>
+	<div class ="nameTeam1">
+		<p class="pTeam1">{{team1Name}}</p>
+	</div>
+	<div class ="logoTeam1">
+		<img src="{{team1Logo}}" width="30"  class="logoTeam1-img">
+	</div>
+	<div class = "betTeam1">
+		<button class="btn-bet" id ="bet-sideA" data-toggle="modal" data-target="#betModal">10000</button>
+	</div>
+	<div class = "timeinfo">
+		{{format}}
+	</div>
+	<div class = "betTeam2">
+		<button  class= "btn-bet" id ="bet-sideB" data-toggle="modal" data-target="#betModal">10000</button>
+	</div>
+	<div class ="logoTeam2">
+		<img src="{{team2Logo}}" width="30" class="logoTeam2-img">
+	</div>
+	<div class ="nameTeam2">
+		<p class="pTeam2">{{team2Name}}</p>
+	</div>
+	<div class ="logoEvent" >
+		<img src="{{eventLogo}}" width="35"  align ="right" title="{{eventName}}">
+	</div>
+</div>
+{{/each}}
