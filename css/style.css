@@ -1,76 +1,156 @@
-body {
-      background-color: #222222;
-      color: white;
-      font-family: "Open Sans";
-      text-align: center;
-      
-    }
 
-.btn-link{
-  border:none;
-  outline:none;
-  background:none;
-  cursor:pointer;
-  color:green;
-  padding:0;
-  text-decoration:underline;
-  font-family:inherit;
-  font-size:inherit;
-}
+/*
 
-.activematches{
+	Glitchy Text from https://css-tricks.com/glitch-effect-text-images-svg/
 
-width: 900px;
-height:40px;
-background-color: #1b2838;
-border:1px solid white; 
-}
-.activematches:hover{
-background-color: #364C68;
+  (TEXT) PARAMS
+  =================
+  1. Namespace
+  2. Intensity
+  3. Text color
+  4. Background color (flat)
+  5. Highlight #1 color
+  6. Highlight #2 color
+  7. Width (px)
+  8. Height (px)
+*/
 
-
-
-}
-
-.logo{
-width: 40px;
-height: 40px;
-float:left;
-
-}
-
-p{
+.content1 {
+  color: #62C85B;
+  font-family: 'Encode Sans Expanded', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #61F5A1;
   position: relative;
-  top: 25%;
-  cursor: default;
-     
 }
-.nameteam{
-width: 150px;
-height: 40px;
-float:left;
-cursor: default;
-font-size: 80%;
+@keyframes glitch-anim-1 {
+  0% {
+    clip: rect(113px, 1084px, 100px, 0);
+  }
+  5.88235% {
+    clip: rect(27px, 1084px, 52px, 0);
+  }
+  11.76471% {
+    clip: rect(26px, 1084px, 8px, 0);
+  }
+  17.64706% {
+    clip: rect(11px, 1084px, 16px, 0);
+  }
+  23.52941% {
+    clip: rect(61px, 1084px, 84px, 0);
+  }
+  29.41176% {
+    clip: rect(110px, 1084px, 15px, 0);
+  }
+  35.29412% {
+    clip: rect(93px, 1084px, 89px, 0);
+  }
+  41.17647% {
+    clip: rect(36px, 1084px, 94px, 0);
+  }
+  47.05882% {
+    clip: rect(74px, 1084px, 22px, 0);
+  }
+  52.94118% {
+    clip: rect(92px, 1084px, 45px, 0);
+  }
+  58.82353% {
+    clip: rect(11px, 1084px, 84px, 0);
+  }
+  64.70588% {
+    clip: rect(102px, 1084px, 84px, 0);
+  }
+  70.58824% {
+    clip: rect(29px, 1084px, 7px, 0);
+  }
+  76.47059% {
+    clip: rect(7px, 1084px, 23px, 0);
+  }
+  82.35294% {
+    clip: rect(112px, 1084px, 27px, 0);
+  }
+  88.23529% {
+    clip: rect(102px, 1084px, 57px, 0);
+  }
+  94.11765% {
+    clip: rect(8px, 1084px, 20px, 0);
+  }
+  100% {
+    clip: rect(95px, 1084px, 110px, 0);
+  }
 }
-
-
-.totalbet{
-width: 80px;
-height:40px;
-float:left;
-cursor: default;
-font-size: 95%;
+@keyframes glitch-anim-2 {
+  0% {
+    clip: rect(70px, 1084px, 72px, 0);
+  }
+  5.88235% {
+    clip: rect(2px, 1084px, 17px, 0);
+  }
+  11.76471% {
+    clip: rect(94px, 1084px, 43px, 0);
+  }
+  17.64706% {
+    clip: rect(114px, 1084px, 30px, 0);
+  }
+  23.52941% {
+    clip: rect(44px, 1084px, 58px, 0);
+  }
+  29.41176% {
+    clip: rect(61px, 1084px, 15px, 0);
+  }
+  35.29412% {
+    clip: rect(20px, 1084px, 24px, 0);
+  }
+  41.17647% {
+    clip: rect(30px, 1084px, 24px, 0);
+  }
+  47.05882% {
+    clip: rect(88px, 1084px, 4px, 0);
+  }
+  52.94118% {
+    clip: rect(26px, 1084px, 80px, 0);
+  }
+  58.82353% {
+    clip: rect(20px, 1084px, 105px, 0);
+  }
+  64.70588% {
+    clip: rect(47px, 1084px, 77px, 0);
+  }
+  70.58824% {
+    clip: rect(95px, 1084px, 107px, 0);
+  }
+  76.47059% {
+    clip: rect(30px, 1084px, 9px, 0);
+  }
+  82.35294% {
+    clip: rect(14px, 1084px, 76px, 0);
+  }
+  88.23529% {
+    clip: rect(82px, 1084px, 40px, 0);
+  }
+  94.11765% {
+    clip: rect(25px, 1084px, 52px, 0);
+  }
+  100% {
+    clip: rect(35px, 1084px, 36px, 0);
+  }
 }
-.score{
-width: 60px;
-height:40px;
-float:left;
-cursor: default;
+.content1:before, .content1:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  clip: rect(0, 0, 0, 0);
 }
-.timeinfo{
-width: 130px;
-height:40px;
-float:left;
-cursor: default;
-font-size: 95%;
+.content1:after {
+  left: 2px;
+  text-shadow: -1px 0 red;
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+.content1:before {
+  left: -2px;
+  text-shadow: 2px 0 blue;
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
 }

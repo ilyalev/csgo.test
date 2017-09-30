@@ -13,7 +13,7 @@
   <li><a href="history.php">History</a></li>
 </ul>
 <ul class="nav nav-sidebar">
-  <li><a href="#">loadmatches</a></li>
+  <li><a href="lib/loadteamlogo.php"> loadmatches</a></li>
   <li><a href="lib/loadallmatches.php">load all</a></li>
   <li><a href="lib/dota2_gg.php">loadresult</a></li>
 </ul>

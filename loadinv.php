@@ -33,6 +33,7 @@
     @import url(http://fonts.googleapis.com/css?family=Open+Sans);
     </style>
     <link href="css/main.css" rel="stylesheet">
+    
   </head>
 
   <body>

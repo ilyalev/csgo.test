@@ -2,7 +2,7 @@
 require_once("bdconfig.php");
 //echo '<table class="table table-bordered table-condensed">';
 
-$q="SELECT * FROM matches WHERE 1 ORDER BY dateTime DESC";
+$q="SELECT * FROM matches WHERE 1 ORDER BY dateTime DESC LIMIT 10";
 $res=$connect->query($q);
 while ($row=$res->fetch_assoc()){
 
