@@ -125,7 +125,8 @@
 <!-- main page -->
   <div class="main" style = "">
 
-    <h3>Upcoming matches CS:GO</h3>
+<div class="area">Upcoming matches CS:GO</div>
+    
     <div class="upcoming-matches">
     
 

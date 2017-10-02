@@ -332,4 +332,56 @@ float:left;
     font: 16px Arial, Helvetica, sans-serif;
     height: 30px;
 }
+
+.user-inventory{
+  width: 540px;
+  border: 1px solid white;
+   float:left;
+}
+
+.user-item{
+  width: 120px;
+  height: 120px;
+  float:left;
+  padding: 5px;
+  border: 1px solid black;
+  margin:5px;
+
+}
+.item-bg{
+ width:100px;
+ height: 70px;
+}
+.item-price{
+width: 100px;
+height: 20px;
+font-size: 12px;
+text-align: right;
+cursor: default;
+}
+
+.item-name{
+width: 100px;
+height: 20px;
+padding: 0px;
+font-size: 10px;
+cursor: default;
+}
+
+.item-rare{
+
+}
+.deposit-btn{
+   float:left;
+   width: 100px;
+}
+.deposit-inventory{
+  width: 270px;
+  border: 1px solid white;
+   float:left;
+}
+
+.border-deposit{
+  border:2px solid red;
+  background-color: #04418B;
 }
