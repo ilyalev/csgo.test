@@ -25,6 +25,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <style>
   @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
@@ -137,7 +138,7 @@
       <div class="col-md-8 main" style = "background-color: #1b2838; border: 1px solid black">
        
   
-       {{{ body }}}
+     <button class="pressButton">press</button>
         
         
      	</div>
@@ -150,45 +151,19 @@
     </div>
   </div>
 <script>
-
-var classname = document.getElementsByClassName("btn-bet");
-var myFunction = function(event) {
-console.log(this.id);  
-var srcelem = event.target;
-var elem;
-elem = srcelem.parentNode;
-elem = elem.parentNode;
-console.log(elem.id); 
-
-var divz = document.getElementById(elem.id);
-
-document.getElementById('betteam1logo').setAttribute('src',divz.children[2].children[0].getAttribute('src'));
-document.getElementById('betteam2logo').setAttribute('src',divz.children[6].children[0].getAttribute('src'));
-document.getElementById('betteamname').innerHTML=divz.children[1].children[0].innerHTML +' vs ' + divz.children[7].children[0].innerHTML;
-document.getElementById('beteventname').innerHTML=divz.children[8].children[0].getAttribute('title');
-
-if (this.id=='bet-sideA'){
-  document.getElementById('betmodal-logoselectteam').setAttribute('src',divz.children[2].children[0].getAttribute('src'));
-  document.getElementById('betmodal-nameselecteam').innerHTML = divz.children[1].children[0].innerHTML;
-  } else {
-      document.getElementById('betmodal-logoselectteam').setAttribute('src',divz.children[6].children[0].getAttribute('src'));
-      document.getElementById('betmodal-nameselecteam').innerHTML = divz.childNodes[7].children[0].innerHTML;
-    }
-
-}
-  
-
-
-for (var y = 0; y < classname.length; y++) {
-    classname[y].addEventListener('click', myFunction, false);
-}
+$(".pressButton").on('click',function(){
+  console.log("button click");
+$.ajax("/matches").done(function(data){
+console.log(data);
+});
+});
 
 
     </script>
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  
   <script src="js/bootstrap.min.js"></script>
   <script src="js/docs.min.js"></script>
 </body>

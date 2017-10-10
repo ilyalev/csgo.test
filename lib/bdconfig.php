@@ -8,8 +8,8 @@
 
 $hostname_connect = "localhost";
 $database_connect = "betsite";
-$username_connect = "levikovily";
-$password_connect = "1qaZXsw2";
+$username_connect = "root";
+$password_connect = "";
 
 $connect = new mysqli($hostname_connect,$username_connect,$password_connect,$database_connect);
 if ($mysqli->connect_errno) {

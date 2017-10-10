@@ -29,7 +29,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/w3.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -83,12 +83,12 @@
 <!-- main page -->
   <div class="main" style = "height: 100%">
 
-      <h3>Select items to deposit</h3>
+      <h3>Select items to withdraw</h3>
       <div class="user-inventory">
-        <h4>User inventory</h4>
+        <h4>Store</h4>
 
         <?php
-        require_once('lib/loaditems.php')
+        require_once('lib/loadbotitems.php')
         ?>
       </div>
       <div class="deposit-items">
@@ -141,7 +141,7 @@ $("#btn-deposit").on('click', function(){
   myJSON = JSON.stringify({items:myarray});
   console.log(myJSON);
 
-  $.post('http://localhost:3000/deposit', {items:myJSON},function(result){},"json");
+  $.post('http://localhost:3000/withdraw', {items:myJSON},function(result){},"json");
 
 
  

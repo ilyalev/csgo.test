@@ -10,11 +10,6 @@ var db_config = {
   database : 'betsite'
 };
 
-var connectionж
-
-
-
-
 
 
 var app = express();
@@ -24,12 +19,15 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
  
 app.get('/', function (req, res) {
-	connection = mysql.createConnection(db_config); 
 	
-	connection.query('SELECT * FROM matches ORDER BY dateTime DESC', function(err, result, field){
-	if (err) throw err;	
-		res.render('home',{matches: result});
-	});
+	res.render('home');
+	
 });
 
+ 
+app.get('/matches', function (req, res) {
+	
+	res.send("req.params");
+	
+});
 app.listen(3000);

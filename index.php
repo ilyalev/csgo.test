@@ -31,15 +31,18 @@
     <![endif]-->
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/w3.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   </head>
 
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="content1" data-text="Betsite.com">Betsite.com</div>
+          <a class="navbar-brand" href="index.php">Bet site</a>
         </div>
         <div class="navbar-collapse collapse">
           <div class="userinfo" align="right">
@@ -88,7 +91,7 @@
           <span id="betmodal-nameselecteam" class="betmodal-nameselecteam" style="margin-left: 20px; margin-top: 10px;"></span>
         </div>
         <div class="betmodal-body-bet" align="left">
-          <span class="betmodal-nameselecteam">Ставка</span><input type="text" id="bet" class="betinput pull-right" style="text-align: right;" placeholder="Bet" maxlength="5"  autofocus="true">
+          <span class="betmodal-nameselecteam">Ставка</span><input type="text" id="inputBet" class="betinput pull-right" style="text-align: right;" placeholder="Bet" maxlength="5"  autofocus="true">
         </div>
         <div class="betmodal-body-win" align="left">
           <span class="betmodal-nameselecteam">Выигрыш</span><input type="text" id="betwin" class="wininput" maxlength="5" readonly>
@@ -101,7 +104,7 @@
     </div>
     
     <div class="modal-footer">
-      <button type="button" class="btn btn-block btn-success btn-lg" data-dismiss="modal">Place bet</button>
+      <button type="button" class="btn btn-block btn-success btn-lg" data-dismiss="modal" id = "placeBet">Place bet</button>
     </div>
   </div>
 
@@ -125,7 +128,7 @@
 <!-- main page -->
   <div class="main" style = "">
 
-<div class="area">Upcoming matches CS:GO</div>
+<h3>Upcoming matches CS:GO</h3>
     
     <div class="upcoming-matches">
     
@@ -160,57 +163,59 @@
   ?>
 
 </div>
-
+<?php
+echo '<script>var userhash = "'.$_SESSION['hashuser'].'";</script>';
+?>
 <div class="navbar navbar-inverse navbar-fixed-bottom">
   copyrigth
 </div>
 
 
 <script>
-var classname = document.getElementsByClassName("btn-bet");
-var myFunction = function(event) {
-console.log(this.id);  
-var srcelem = event.target;
-var elem;
-elem = srcelem.parentNode;
-elem = elem.parentNode;
-console.log(elem.id); 
+var matchId, team1Logo, team1Name, team2Logo, team2Name,eventName, eventLogo, sideA;
 
-//var divz = document.getElementById(elem.id);
-
-document.getElementById('betteam1logo').setAttribute('src',elem.children[2].children[0].getAttribute('src'));
-document.getElementById('betteam2logo').setAttribute('src',elem.children[6].children[0].getAttribute('src'));
-document.getElementById('betteamname').innerHTML=elem.children[1].children[0].innerHTML +' vs ' + elem.children[7].children[0].innerHTML;
-document.getElementById('beteventname').innerHTML=elem.children[8].children[0].getAttribute('title');
-
-if (this.id=='bet-sideA'){
-  document.getElementById('betmodal-logoselectteam').setAttribute('src',elem.children[2].children[0].getAttribute('src'));
-  document.getElementById('betmodal-nameselecteam').innerHTML = elem.children[1].children[0].innerHTML;
-  } else {
-      document.getElementById('betmodal-logoselectteam').setAttribute('src',elem.children[6].children[0].getAttribute('src'));
-      document.getElementById('betmodal-nameselecteam').innerHTML = elem.childNodes[7].children[0].innerHTML;
-    }
-
-}
+$(".btn-bet").on('click',function(){
   
+  matchId = $(this).attr("data-match");
+  team1Logo = $("#"+matchId).find(".logoTeam1-img").attr("src");
+  team2Logo = $("#"+matchId).find(".logoTeam2-img").attr("src");
+  team1Name = $("#"+matchId).find(".pTeam1").html();
+  team2Name = $("#"+matchId).find(".pTeam2").html();
+  eventName = $("#"+matchId).find(".logoEvent").children().attr("title");
+  eventLogo = $("#"+matchId).find(".logoEvent").children().attr("src");
 
+  $("#betteam1logo").attr("src",team1Logo);
+  $("#betteam2logo").attr("src",team2Logo);
+  $("#betteamname").text(team1Name + ' vs '+team2Name);
+  $("#beteventname").text(eventName);
 
-for (var y = 0; y < classname.length; y++) {
-    classname[y].addEventListener('click', myFunction, false);
-}
+  if ($(this).id = "bet-sideA"){
+    sideA="sideA";
+    $("#betmodal-logoselectteam").attr("src",team1Logo);
+    $("#betmodal-nameselecteam").text(team1Name);
+  }
+    else {
+      $("#betmodal-logoselectteam").attr("src",team2Logo);
+      $("#betmodal-nameselecteam").text(team2Name);
+      sideA="sideB";
+    }
+});
 
+$("#placeBet").on('click',function(){
+  var bet = $("#inputBet").val();
+console.log('index/'+matchId+'/'+sideA+'/'+bet+'/'+userhash);
+});
+</script>
+<script>
+  
+$("#fadematches").on('click', function() {
+  $("#2313950" ).fadeOut("slow", function(){
+   $(".live-matches").prepend($("#2313950" ));
+    $("#2313950" ).fadeIn( "slow");
+  });
+});
 
-    </script>
-    <script>
-      
-    $("#fadematches").on('click', function() {
-      $("#2313950" ).fadeOut( "slow", function(){
-       $(".live-matches").prepend($("#2313950" ));
-        $("#2313950" ).fadeIn( "slow");
-      });
-    });
-    
-    </script>
+</script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
